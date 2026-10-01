@@ -1,0 +1,9 @@
+# macOS が作るファイル
+.DS_Store
+
+# npm でインストールしたパッケージ（npm install で作り直せる）
+node_modules/
+
+# 秘密の情報
+.env
+.dev.vars
