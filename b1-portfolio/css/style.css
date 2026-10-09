@@ -1,0 +1,354 @@
+/* ==========================================================
+   基本設定
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #1f6feb;
+  --color-primary-dark: #1558c0;
+  --color-text: #1f2328;
+  --color-muted: #59636e;
+  --color-border: #d0d7de;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f6f8fa;
+  --radius: 12px;
+  --content-width: 1040px;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.4;
+}
+
+/* 中身の幅をそろえて中央に置く */
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+.section-title {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+}
+
+/* ==========================================================
+   ヘッダー
+   ========================================================== */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+/* スマートフォン：ロゴとナビを縦に並べる */
+.site-header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding: 4px 0;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+}
+
+/* 今表示しているページのリンク */
+.nav-list a[aria-current="page"] {
+  color: var(--color-primary);
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* .nav-list a（詳細度：クラス 1 + 要素 1）の padding に負けないよう、
+   .nav-list .lang-switch（クラス 2）で指定する */
+.nav-list .lang-switch {
+  padding: 2px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================
+   トップページ
+   ========================================================== */
+
+.hero {
+  padding: 56px 0;
+  background-color: var(--color-bg-soft);
+}
+
+/* スマートフォン：写真と文章を縦に並べる */
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.hero-photo {
+  width: 160px;
+  border-radius: 50%;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hero-lead {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
+/* 画面の幅に合わせて 1〜3 列になるカードの並び */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Grid のアイテム（li）の高さいっぱいに広げて、カードの高さを揃える */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+}
+
+.card-body {
+  padding: 16px 20px 20px;
+}
+
+.card-title {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+}
+
+.card-meta {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.card-text {
+  margin: 0;
+}
+
+/* ==========================================================
+   自己紹介ページ
+   ========================================================== */
+
+/* スマートフォン：写真と表を縦に並べる */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile-photo {
+  width: 200px;
+  border-radius: var(--radius);
+}
+
+.profile-list {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  border-top: 1px solid var(--color-border);
+}
+
+.profile-list dt,
+.profile-list dd {
+  margin: 0;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-list dt {
+  font-weight: bold;
+  background-color: var(--color-bg-soft);
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  padding: 4px 16px;
+  border-radius: 999px;
+  background-color: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+}
+
+/* ==========================================================
+   活動ページ
+   ========================================================== */
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 3px solid var(--color-primary);
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 24px 24px;
+}
+
+/* 線の上の丸 */
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: -9px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.timeline time {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* ==========================================================
+   フッター
+   ========================================================== */
+
+.site-footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ==========================================================
+   PC・タブレット（768px 以上）
+   ========================================================== */
+
+@media (min-width: 768px) {
+  /* ロゴを左、ナビを右に並べる */
+  .site-header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* 写真と文章を横に並べる */
+  .hero-inner {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .profile {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .profile-photo {
+    flex-shrink: 0;
+  }
+}
